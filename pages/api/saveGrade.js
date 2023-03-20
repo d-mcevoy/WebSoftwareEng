@@ -1,9 +1,9 @@
 
 
 
-export default function SaveGraade(req, res) {
+export default function SaveGrade(req, res) {
 
-    console.log("Inserting to grades DB");
+    console.log("Save Grade API page");
 
     const cid = req.body.cid;
     const sid = req.body.sid;

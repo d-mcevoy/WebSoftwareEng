@@ -7,9 +7,12 @@ import { Button, Grid } from "@nextui-org/react";
 
 export default function ViewAll({data}) {
 
+    console.log('View All Page');
+
     const router = useRouter()
 
-    const {cid} = router.query
+    const {id} = router.query
+    console.log('View All Page ID: '+ id);
 
     async function saveData(id) {
 
@@ -114,7 +117,7 @@ return (
 export async function getServerSideProps(context) {
     let id = context.query.id;
 
-    console.log("Current id: "+id);
+    console.log("View All Server Side Props: Current id: "+id);
 
     const res = await fetch(`http://localhost:3000/api/getEnrolledStudents?id=`+id)
     const data = await res.json()

@@ -4,7 +4,9 @@ import { Table } from '@nextui-org/react';
 
 
 export default function listAllCourses({data}) {
+    console.log('list course page');
     return (
+        
         <>
             <Table
          striped={true}
@@ -49,6 +51,9 @@ export default function listAllCourses({data}) {
 }
 
 export async function getServerSideProps() {
+
+    console.log('List All Courses Server Side Props: ID = ');
+
     const res = await fetch(`http://localhost:3000/api/listcourses`)
     const data = await res.json()
     

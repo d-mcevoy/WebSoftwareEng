@@ -9,7 +9,8 @@ export default function EnrollNew({data}) {
 
     const router = useRouter()
 
-    const {cid} = router.query
+    const {id} = router.query
+    console.log('EnrollStudent Page: ID = '+id);
 
 return (
 <>
@@ -76,6 +77,13 @@ async function handleSubmit(event) {
     const email = document.querySelector('#email').value;     
     const address = document.querySelector('#address').value;
     const phone = document.querySelector('#phone').value;
+    const courseID = id;
+
+    console.log(courseID);
+    console.log(id);
+
+    router.push('/viewAll?id='+courseID);
+    console.log("Stored in DB");
 
     const data = {
         sid: event.target.sid.value,
@@ -84,9 +92,10 @@ async function handleSubmit(event) {
         email: event.target.email.value,
         address: event.target.address.value,
         phone: event.target.phone.value,
-        cid: cid
+        cid: id
         
     }
+    
    
 
     // Send the data to the server in JSON format.
@@ -114,11 +123,8 @@ async function handleSubmit(event) {
 
     // all okay
 
-    if(result == "ok"){
-        alert("ok")
-        router.push(`/enrollStudent?id=` +cid);
-        console.log("Stored in DB");
-      }    
+        
+     
 }
 
 
@@ -127,7 +133,7 @@ async function handleSubmit(event) {
 export async function getServerSideProps(context) {
     let id = context.query.id;
 
-    console.log("Current id: "+id);
+    console.log("Enroll Student Server Side Props: Current id: "+id);
 
     const res = await fetch(`http://localhost:3000/api/getEnrolledStudents?id=`+id)
     const data = await res.json()

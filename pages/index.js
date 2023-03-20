@@ -14,6 +14,8 @@ export default function Home({data}) {
 
   async function handleSubmit(event) {
 
+    console.log('Login Handler');
+
     event.preventDefault();
 
     const name = document.querySelector('#username').value
@@ -59,6 +61,7 @@ export default function Home({data}) {
 
     // redirect if 'ok' received in response
     if(result == "ok"){
+      console.log('Login Successful')
       alert("ok")
       router.push("/listAllCourses");
     }
