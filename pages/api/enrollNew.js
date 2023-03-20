@@ -9,8 +9,8 @@ export default function enrollNew(req, res) {
     console.log(req.body);
 
     const sid = req.body.sid;
-    const firstname = req.body.firstname;
-    const surname = req.body.surname;
+    const firstname = req.body.fname;
+    const surname = req.body.sname;
     const email = req.body.email;
     const address = req.body.address;
     const phone = req.body.phone;
