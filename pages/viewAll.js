@@ -14,16 +14,16 @@ export default function ViewAll({data}) {
     const {id} = router.query
     console.log('View All Page ID: '+ id);
 
-    async function saveData(id) {
+    async function saveData(sid) {
 
                 
-        let gradeValue = document.getElementById(`grade_`+id).value;   
+        let gradeValue = document.getElementById(`grade_`+sid).value;   
 
 
         const data = {
-            sid: id,
+            sid: sid,
             grade: gradeValue,
-            cid: cid
+            cid: id
         }
        
     
@@ -79,6 +79,7 @@ return (
             <Table.Column>First Name</Table.Column>
             <Table.Column>Surname</Table.Column>
             <Table.Column>Enrolled in Course</Table.Column>
+            <Table.Column>Option</Table.Column>
           </Table.Header>
           <Table.Body>
     
@@ -102,6 +103,7 @@ return (
                 <Table.Cell> {item.firstname}</Table.Cell>
                 <Table.Cell> {item.lastname}</Table.Cell>
                 <Table.Cell> {item.enrolledin}</Table.Cell>
+                <Table.Cell> <Link href={`/viewStudent?id=` +item.id}>View</Link> </Table.Cell>
               </Table.Row>
             );
           })}
@@ -116,8 +118,11 @@ return (
 
 export async function getServerSideProps(context) {
     let id = context.query.id;
+   
 
     console.log("View All Server Side Props: Current id: "+id);
+
+    
 
     const res = await fetch(`http://localhost:3000/api/getEnrolledStudents?id=`+id)
     const data = await res.json()
@@ -125,3 +130,4 @@ export async function getServerSideProps(context) {
     return { props: { data } }
 
   }
+ 

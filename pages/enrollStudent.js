@@ -5,7 +5,7 @@ import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from 'next/router'
 import { Button, Grid, Card, Text } from "@nextui-org/react";
 
-export default function EnrollNew({data}) {
+export default function EnrollNew({data, data2}) {
 
     const router = useRouter()
 
@@ -137,7 +137,11 @@ export async function getServerSideProps(context) {
 
     const res = await fetch(`http://localhost:3000/api/getEnrolledStudents?id=`+id)
     const data = await res.json()
+
+    
     
     return { props: { data } }
 
   }
+
+  
