@@ -37,7 +37,7 @@ export default function viewStudents({data}) {
             <Table.Column>Surname</Table.Column>
             <Table.Column>Course ID</Table.Column>
             <Table.Column>Grade</Table.Column>
-            <Table.Column>Option</Table.Column>
+            
             
           </Table.Header>
           <Table.Body>
@@ -51,14 +51,6 @@ export default function viewStudents({data}) {
                 <Table.Cell> {item.sn}</Table.Cell>
                 <Table.Cell> {item.cid}</Table.Cell>
                 <Table.Cell> {item.grade}</Table.Cell>
-                <Table.Cell> 
-                <Button 
-                        type="button" 
-                        size="xs"
-                        onClick={(save) => deleteData(item.gid, item.sid)}>
-                            Delete
-                    </Button>
-                </Table.Cell>
                 
               </Table.Row>
             );
@@ -74,48 +66,6 @@ export default function viewStudents({data}) {
 
     </>
   )
-
-  async function deleteData(gid, sid) {
-
-                
-    
-    const data = { gid: gid }
-   
-
-    // Send the data to the server in JSON format.
-    const JSONdata = JSON.stringify(data)
-    
-    // API endpoint where we send form data.
-    const endpoint = '/api/deleteGrade'
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: 'POST',
-      // Tell the server we're sending JSON.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    }
-    // Send the form data to our forms API on Vercel and get a response.
-    const response = await fetch(endpoint, options)
-
-    // Get the response data from server as JSON.
-    const result = await response.json()
-
-    if(result == "ok"){
-        alert("ok")
-        router.push("/viewStudent?id="+sid);
-      }
-    //window.location.reload();
-
-    
-}
-
-
-
 }
 
 export async function getServerSideProps(context) {
