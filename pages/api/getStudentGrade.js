@@ -5,7 +5,7 @@
 
 export default function getEnrolledStudents(req, res) {
 
-    console.log("Get Student Grade API page");
+    console.log("GET STUDENT GRADE API PAGE");
 
 
     let currentID = req.query.id;

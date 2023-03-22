@@ -2,6 +2,8 @@
 
 export default function handler(req, res) {
 
+    console.log("LOGIN API");
+
     const username = req.body.username;
     const pass = req.body.password;
 

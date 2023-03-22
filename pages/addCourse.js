@@ -7,7 +7,7 @@ import { Button, Grid, Card, Text } from "@nextui-org/react";
 
 export default function addNew(data) {
 
-    console.log("ADD STUDENT PAGE");
+    console.log("ADD COURSE PAGE");
 
     const router = useRouter()
 
@@ -25,25 +25,16 @@ return (
               <br></br>
 
               <form onSubmit={handleSubmit}>
-              <Input id="sid" label="Student ID#" initialValue="" />
+              <Input id="title" label="Course Title" initialValue="" />
                 <Spacer y={0.5} />
 
-                <Input id="firstname" label="First Name" initialValue="" />
+                <Input id="desc" label="Course Description" initialValue="" />
                 <Spacer y={0.5} />
 
-                <Input id="surname" label="Surname" initialValue="" />
+                <Input id="nfq" label="NFQ Level" initialValue="" />
                 <Spacer y={0.5} />
 
-                <Input id="email" label="Email" initialValue="" />
-                <Spacer y={0.5} />
-
-                <Input id="address" label="address" initialValue="" />
-                <Spacer y={0.5} />
-
-                <Input id="phone" label="phone" initialValue="" />
-                <Spacer y={0.5} />
-
-                <Input id="enrolledin" label="enrolledin" initialValue="" />
+                <Input id="courseyear" label="Length of Course (years)" initialValue="" />
                 <Spacer y={0.5} />
 
                 <Button 
@@ -72,24 +63,18 @@ return (
 async function handleSubmit(event) {
 
     event.preventDefault(); 
-    console.log("ADD STUDENT PAGE: ADD STUDENT HANDLE SUBMIT")
+    console.log("ADD COURSES PAGE: ADD STUDENT HANDLE SUBMIT")
     
-    const sid = document.querySelector('#sid').value;
-    const firstname = document.querySelector('#firstname').value;
-    const surname = document.querySelector('#surname').value;
-    const email = document.querySelector('#email').value;     
-    const address = document.querySelector('#address').value;
-    const phone = document.querySelector('#phone').value;
-    const enrolledin = document.querySelector('#enrolledin').value;
+    const title = document.querySelector('#title').value;
+    const desc = document.querySelector('#desc').value;
+    const nfq = document.querySelector('#nfq').value;
+    const courseyear = document.querySelector('#courseyear').value;     
 
     const data = {
-        sid: event.target.sid.value,
-        fname: event.target.firstname.value,
-        sname: event.target.surname.value,
-        email: event.target.email.value,
-        address: event.target.address.value,
-        phone: event.target.phone.value,
-        enrolledin: event.target.enrolledin.value
+        title: event.target.title.value,
+        desc: event.target.desc.value,
+        nfq: event.target.nfq.value,
+        courseyear: event.target.courseyear.value
         
     }
     
@@ -99,7 +84,7 @@ async function handleSubmit(event) {
     const JSONdata = JSON.stringify(data)
     
     // API endpoint where we send form data.
-    const endpoint = '/api/addNew'
+    const endpoint = '/api/addNewCourse'
 
     // Form the request for sending data to the server.
     const options = {
@@ -120,7 +105,7 @@ async function handleSubmit(event) {
 
     // all okay
 
-    router.push('/listAllStudents');
+    router.push('/listAllCourses');
      
 }
 

@@ -10,7 +10,7 @@ export default function EnrollNew({data, data2}) {
     const router = useRouter()
 
     const {id} = router.query
-    console.log('EnrollStudent Page: ID = '+id);
+    console.log('ENROLL STUDENT PAGE: ID = '+id);
 
 return (
 <>
@@ -68,6 +68,8 @@ return (
 )
 
 async function handleSubmit(event) {
+
+    console.log("ENROLL STUDENT PAGE: HANDLE SUBMIT");
 
     event.preventDefault(); 
     

@@ -3,7 +3,7 @@
 
 export default function SaveGrade(req, res) {
 
-    console.log("Save Grade API page");
+    console.log("SAVE GRADE API PAGE");
 
     const cid = req.body.cid;
     const sid = req.body.sid;

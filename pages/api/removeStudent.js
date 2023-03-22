@@ -2,7 +2,7 @@
 
 export default function DeleteGrade(req, res) {
 
-    console.log("Delete Student API page");
+    console.log("DELETE STUDENT API PAGE");
 
     const sid = req.body.sid;
 

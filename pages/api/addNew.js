@@ -4,6 +4,8 @@
 
 export default function enrollNew(req, res) {
 
+    console.log("ENROLL STUDENT API PAGE");
+
     const sid = req.body.sid;
     const firstname = req.body.fname;
     const surname = req.body.sname;

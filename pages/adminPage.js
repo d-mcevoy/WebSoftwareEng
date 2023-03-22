@@ -8,6 +8,8 @@ import { Link } from "@nextui-org/react";
 
 
 export default function admin({data}) {
+    
+    console.log("ADMIN PAGE");
 
     const router = useRouter()
 

@@ -4,7 +4,7 @@
 
 export default function getEnrolledStudents(req, res) {
 
-    console.log("Get Enrolled Student API page: ID = "+ req.query.id);
+    console.log("GET ENROLLED API PAGE, ID = "+ req.query.id);
 
 
     let currentID = req.query.id;

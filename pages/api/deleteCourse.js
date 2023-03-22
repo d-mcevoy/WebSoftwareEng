@@ -1,10 +1,15 @@
 
 
-export default function DeleteGrade(req, res) {
 
-    console.log("DELETE GRADE API PAGE");
 
-    const gid = req.body.gid;
+export default function deleteCourse(req, res) {
+
+    console.log(req.body)
+
+    console.log("DELETE COURSE API PAGE: cid = "+ req.body.cid);
+
+
+    const cid = req.body.cid;
 
     const mysql = require('mysql2');
 
@@ -17,10 +22,10 @@ export default function DeleteGrade(req, res) {
       });
 
       connection.query(
-        "DELETE FROM `wse_ca1`.`grades` WHERE (`id` = '"+gid+"');",
+        "DELETE FROM `wse_ca1`.`courses` WHERE (`id` = '"+cid+"');",
         function(err, results, fields) {
             
-            res.status(200).json("ok");
+            res.status(200).json('ok');
         }
       );
 

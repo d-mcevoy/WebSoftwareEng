@@ -12,6 +12,8 @@ import { Link } from "@nextui-org/react";
 
 export default function Home({data}) {
 
+  console.log("HOME PAGE");
+
   async function handleSubmit(event) {
 
     console.log('Login Handler');

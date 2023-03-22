@@ -3,7 +3,7 @@ export default function getGrades(req, res) {
 
     let sid = req.query.id;
 
-    console.log("Get Grades DB Query:"+sid);
+    console.log("GET GRADE QUERY API PAGE:"+sid);
 
     const mysql = require('mysql2');
 

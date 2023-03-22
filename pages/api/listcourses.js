@@ -2,7 +2,7 @@
 
 export default function listAllCoursesQuery(req, res) {
 
-    console.log("List All Courses DB Query");
+    console.log("LIST ALL COURSES QUERY API");
 
     const mysql = require('mysql2');
 

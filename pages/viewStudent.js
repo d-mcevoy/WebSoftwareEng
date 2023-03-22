@@ -10,16 +10,32 @@ import { Button, Grid } from "@nextui-org/react";
 
 export default function viewStudents({data}) {
 
-    console.log('View Student Page');
-    console.log(data);
+    console.log('VIEW STUDENT PAGE')
+    console.log(data)
+    console.log("CourseID = "+data[0].cid)
 
     const router = useRouter()
 
     const {id} = router.query
 
+    
+
+    async function goUp(id) {
+      console.log("VIEW STUDENT PAGE: goUp() ID="+id);
+      router.push("/viewAll?id="+id);
+  }
+
 
   return (
     <>
+      <Button 
+          type="button" 
+          size="xs"
+          onClick={(save) => goUp(data[0].cid)}>
+              Return
+      </Button>
+
+
        <Table
          striped={true}
           shadow={false}
@@ -70,6 +86,7 @@ export default function viewStudents({data}) {
   )
   async function deleteData(gid, sid) {
 
+    console.log('VIEW STUDENT PAGE: deleteData()');
 
 
     const data = { gid: gid }
@@ -116,7 +133,7 @@ export async function getServerSideProps(context) {
     let id = context.query.id;
    
 
-    console.log("View Student Server Side Props: Current id: "+id);
+    console.log("VIEW STUDENT PAGE: getServerSideProps() ID="+id);
 
     
 

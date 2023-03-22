@@ -7,14 +7,21 @@ import { Button, Grid } from "@nextui-org/react";
 
 export default function ViewAll({data}) {
 
-    console.log('View All Page');
+    
 
     const router = useRouter()
 
     const {id} = router.query
-    console.log('View All Page ID: '+ id);
+    console.log('VIEW ALL PAGE: ID = '+id);
+
+    async function goUp() {
+      console.log("VIEW All PAGE: goUp()");
+      router.push("/listAllCourses");
+  }
 
     async function saveData(sid) {
+
+      console.log('VIEW ALL PAGE: saveData()');
 
                 
         let gradeValue = document.getElementById(`grade_`+sid).value;   
@@ -58,6 +65,13 @@ export default function ViewAll({data}) {
 
 return (
 <>
+
+<Button 
+          type="button" 
+          size="xs"
+          onClick={(save) => goUp(data[0].cid)}>
+              Return
+      </Button>
     
 
     <Table
@@ -117,7 +131,7 @@ export async function getServerSideProps(context) {
     let id = context.query.id;
    
 
-    console.log("View All Server Side Props: Current id: "+id);
+    console.log("VIEW ALL PAGE: getServerSideProps() ID="+id);
 
     
 

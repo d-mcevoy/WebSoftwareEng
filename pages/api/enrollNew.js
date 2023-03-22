@@ -4,8 +4,7 @@
 
 export default function enrollNew(req, res) {
 
-    console.log('Enroll Student API page');
-    console.log("Inserting into Students DB");
+    console.log('ADD NEW STUDENT API PAGE');
     console.log(req.body);
 
     const sid = req.body.sid;

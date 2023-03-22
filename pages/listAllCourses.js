@@ -5,12 +5,57 @@ import { useRouter } from 'next/router'
 
 
 export default function listAllCourses({data}) {
-    console.log('list course page');
+    console.log('LIST ALL COURSES PAGE');
     const router = useRouter()
 
     async function goHome() {
+      console.log("LIST ALL COURSES PAGE: goHome()");
       router.push("/adminPage");
   }
+
+    async function addCourse() {
+      console.log("LIST ALL COURSES PAGE: addCourse()");
+      router.push("/addCourse");
+    }
+
+    async function deleteCourse(cid) {
+
+      console.log('LIST ALL COURSES PAGE: deleteCourse()');
+  
+        const data = {
+            cid: cid
+        }
+       
+    
+        // Send the data to the server in JSON format.
+        const JSONdata = JSON.stringify(data)
+        
+        // API endpoint where we send form data.
+        const endpoint = '/api/deleteCourse'
+    
+        // Form the request for sending data to the server.
+        const options = {
+          // The method is POST because we are sending data.
+          method: 'POST',
+          // Tell the server we're sending JSON.
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // Body of the request is the JSON data we created above.
+          body: JSONdata,
+        }
+        // Send the form data to our forms API on Vercel and get a response.
+        const response = await fetch(endpoint, options)
+    
+        // Get the response data from server as JSON.
+        const result = await response.json()
+
+        // all okay
+
+        router.push('/listAllCourses');
+        alert('deleted')
+
+    }
 
     return (     
         
@@ -20,6 +65,13 @@ export default function listAllCourses({data}) {
             type="button" 
             onClick={(save) => goHome()}>
             Home
+        </Button>
+
+        <Button 
+            size="lg"
+            type="button" 
+            onClick={(save) => addCourse()}>
+            Add New Course
         </Button>
 
 
@@ -42,6 +94,7 @@ export default function listAllCourses({data}) {
             <Table.Column>Years</Table.Column>
             <Table.Column>Option</Table.Column>
             <Table.Column>Enroll New Student</Table.Column>
+            <Table.Column>Delete Course</Table.Column>
           </Table.Header>
           <Table.Body>
     
@@ -55,6 +108,15 @@ export default function listAllCourses({data}) {
                 <Table.Cell> {item.courseyear}</Table.Cell>
                 <Table.Cell><Link href={`/viewAll?id=` +item.id}>View</Link> </Table.Cell>
                 <Table.Cell><Link href={`/enrollStudent?id=` +item.id}>New Student</Link> </Table.Cell>
+                <Table.Cell>
+                <Button 
+                      size="lg"
+                      type="button" 
+                      onClick={(save) => deleteCourse(item.id)}>
+                      Delete Course
+                </Button>
+
+                </Table.Cell>
               </Table.Row>
             );
           })}
@@ -68,7 +130,7 @@ export default function listAllCourses({data}) {
 
 export async function getServerSideProps() {
 
-    console.log('List All Courses Server Side Props: ID = ');
+    console.log('LIST ALL COURSES PAGE: getServerSideProps()');
 
     const res = await fetch(`http://localhost:3000/api/listcourses`)
     const data = await res.json()

@@ -6,14 +6,17 @@ import { useRouter } from 'next/router'
 
 export default function listAllCourses({data}) {
 
+
     const router = useRouter()
 
-    console.log('list course page');
+    console.log('LIST ALL STUDENTS PAGE');
 
     async function goHome() {
+        console.log("LIST ALL STUDENTS PAGE: goHome()");
         router.push("/adminPage");
     }
     async function addStudent() {
+        console.log("LIST ALL STUDENTS PAGE: addStudent()");
         router.push("/addStudent");
     }
     
@@ -89,6 +92,8 @@ export default function listAllCourses({data}) {
 
       async function deleteStudent(sid) {
 
+        console.log("LIST ALL STUDENTS PAGE: deleteStudent()");
+
                 
         const data = { sid: sid }
        
@@ -129,7 +134,7 @@ export default function listAllCourses({data}) {
 
 export async function getServerSideProps() {
 
-    console.log('List All Courses Server Side Props: ID = ');
+    console.log('LIST ALL STUDENTS PAGE: getServerSideProps()');
 
     const res = await fetch(`http://localhost:3000/api/listStudents`)
     const data = await res.json()
