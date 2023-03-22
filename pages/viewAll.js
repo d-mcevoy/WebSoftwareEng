@@ -56,9 +56,6 @@ export default function ViewAll({data}) {
     }
 
 
-
-
-
 return (
 <>
     
@@ -79,7 +76,7 @@ return (
             <Table.Column>First Name</Table.Column>
             <Table.Column>Surname</Table.Column>
             <Table.Column>Enrolled in Course</Table.Column>
-            <Table.Column>Option</Table.Column>
+            <Table.Column>View Student Record</Table.Column>
           </Table.Header>
           <Table.Body>
     

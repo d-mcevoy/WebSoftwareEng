@@ -63,7 +63,7 @@ export default function Home({data}) {
     if(result == "ok"){
       console.log('Login Successful')
       alert("ok")
-      router.push("/listAllCourses");
+      router.push("/adminPage");
     }
 
 

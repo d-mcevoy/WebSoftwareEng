@@ -1,13 +1,29 @@
 import { Grid, Card, Text } from "@nextui-org/react";
 import Link from 'next/link'
-import { Table } from '@nextui-org/react';
+import { Table, Button } from '@nextui-org/react';
+import { useRouter } from 'next/router'
 
 
 export default function listAllCourses({data}) {
     console.log('list course page');
-    return (
+    const router = useRouter()
+
+    async function goHome() {
+      router.push("/adminPage");
+  }
+
+    return (     
         
         <>
+        <Button 
+            size="lg"
+            type="button" 
+            onClick={(save) => goHome()}>
+            Home
+        </Button>
+
+
+
             <Table
          striped={true}
           shadow={false}

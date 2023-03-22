@@ -1,10 +1,8 @@
 
 
-export default function DeleteGrade(req, res) {
+export default function listAllCoursesQuery(req, res) {
 
-    console.log("Delete Grade API page");
-
-    const gid = req.body.gid;
+    console.log("List All Courses DB Query");
 
     const mysql = require('mysql2');
 
@@ -17,10 +15,15 @@ export default function DeleteGrade(req, res) {
       });
 
       connection.query(
-        "DELETE FROM `wse_ca1`.`grades` WHERE (`id` = '"+gid+"');",
+        "SELECT * FROM wse_ca1.students;",
         function(err, results, fields) {
+
             
-            res.status(200).json("ok");
+            // loop over all records     
+            
+            // return all the records
+            res.status(200).json(results);
+         
         }
       );
 

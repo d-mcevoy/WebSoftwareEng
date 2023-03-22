@@ -22,7 +22,7 @@ export default function getGrades(req, res) {
             console.log("Inside Get Grade API Query");
             console.log(results);
             res.status(200).json(results);
-            console.log("After return Inside Grade API Query");
+            
          
         }
       );
