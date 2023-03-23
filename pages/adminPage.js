@@ -13,13 +13,18 @@ export default function admin({data}) {
 
     const router = useRouter()
 
-    async function goCourses() {
+    function goCourses() {
 
         router.push("/listAllCourses");
     }
-    async function goStudent() {
+    function goStudent() {
 
         router.push("/listAllStudents");
+    }
+
+    function goChat() {
+
+        router.push("/chat");
     }
 
     return (
@@ -40,6 +45,13 @@ export default function admin({data}) {
             </Button>
         <Spacer y={0.5} />
 
+        <Button 
+            size="xl"
+            type="button" 
+            onClick={(save) => goChat()}>
+            Chat
+            </Button>
+        <Spacer y={0.5} />
         
 
         </>

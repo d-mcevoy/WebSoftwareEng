@@ -8,12 +8,12 @@ export default function listAllCourses({data}) {
     console.log('LIST ALL COURSES PAGE');
     const router = useRouter()
 
-    async function goHome() {
+    function goHome() {
       console.log("LIST ALL COURSES PAGE: goHome()");
       router.push("/adminPage");
   }
 
-    async function addCourse() {
+    function addCourse() {
       console.log("LIST ALL COURSES PAGE: addCourse()");
       router.push("/addCourse");
     }

@@ -11,11 +11,11 @@ export default function listAllCourses({data}) {
 
     console.log('LIST ALL STUDENTS PAGE');
 
-    async function goHome() {
+    function goHome() {
         console.log("LIST ALL STUDENTS PAGE: goHome()");
         router.push("/adminPage");
     }
-    async function addStudent() {
+    function addStudent() {
         console.log("LIST ALL STUDENTS PAGE: addStudent()");
         router.push("/addStudent");
     }

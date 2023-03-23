@@ -14,7 +14,7 @@ export default function ViewAll({data}) {
     const {id} = router.query
     console.log('VIEW ALL PAGE: ID = '+id);
 
-    async function goUp() {
+    function goUp() {
       console.log("VIEW All PAGE: goUp()");
       router.push("/listAllCourses");
   }
@@ -66,12 +66,12 @@ export default function ViewAll({data}) {
 return (
 <>
 
-<Button 
+      <Button 
           type="button" 
           size="xs"
           onClick={(save) => goUp(data[0].cid)}>
               Return
-      </Button>
+    </Button>
     
 
     <Table

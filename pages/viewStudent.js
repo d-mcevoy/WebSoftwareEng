@@ -20,7 +20,7 @@ export default function viewStudents({data}) {
 
     
 
-    async function goUp(id) {
+    function goUp(id) {
       console.log("VIEW STUDENT PAGE: goUp() ID="+id);
       router.push("/viewAll?id="+id);
   }
