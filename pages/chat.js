@@ -1,6 +1,6 @@
 import { Grid, Card, Text, Textarea, Spacer, Input } from "@nextui-org/react";
 import Link from 'next/link'
-import { Table, Button } from '@nextui-org/react';
+import { Table, Button, NextUIProvider } from '@nextui-org/react';
 import { useRouter } from 'next/router'
 
 
@@ -54,7 +54,7 @@ export default function chat(data) {
 
 
     return(
-        <>
+        <NextUIProvider>
         
         <Card>
             <Card.Body>
@@ -99,7 +99,7 @@ export default function chat(data) {
         
         
         
-        </>
+        </NextUIProvider>
     )
 }
 

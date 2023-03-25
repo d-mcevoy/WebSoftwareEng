@@ -28,7 +28,7 @@ export default function admin({data}) {
     }
 
     return (
-        <>
+        <NextUIProvider>
         <Button 
             size="xl"
             type="button" 
@@ -54,6 +54,6 @@ export default function admin({data}) {
         <Spacer y={0.5} />
         
 
-        </>
+        </NextUIProvider>
     )
 }

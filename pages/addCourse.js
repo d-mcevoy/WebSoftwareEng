@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Table } from '@nextui-org/react';
 import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from 'next/router'
-import { Button, Grid, Card, Text } from "@nextui-org/react";
+import { Button, Grid, Card, Text, NextUIProvider } from "@nextui-org/react";
 
 export default function addNew(data) {
 
@@ -12,7 +12,7 @@ export default function addNew(data) {
     const router = useRouter()
 
 return (
-<>
+<NextUIProvider>
     
 <Grid.Container gap={2} justify="center">
         
@@ -56,7 +56,7 @@ return (
 
    
 
-</>
+  </NextUIProvider>
 
 )
 
@@ -66,9 +66,50 @@ async function handleSubmit(event) {
     console.log("ADD COURSES PAGE: ADD STUDENT HANDLE SUBMIT")
     
     const title = document.querySelector('#title').value;
+     
+    if(!title){
+      alert("A Course Title is Required");
+      return false;
+    }
+    if(title.includes("DROP")||title.includes("DROP")||title.includes("DROP")||title.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
     const desc = document.querySelector('#desc').value;
-    const nfq = document.querySelector('#nfq').value;
-    const courseyear = document.querySelector('#courseyear').value;     
+
+    if(!desc){
+      alert("A Course Decsription is Required");
+      return false;
+    }
+    if(desc.includes("DROP")||desc.includes("DROP")||desc.includes("DROP")||desc.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    const nfq = document.querySelector('#nfq').value;  
+
+    if(!nfq){
+      alert("The course NFQ level is Required");
+      return false;
+    }
+    if(nfq.includes("DROP")||nfq.includes("DROP")||nfq.includes("DROP")||nfq.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    const courseyear = document.querySelector('#courseyear').value;
+
+    if(!courseyear){
+      alert("The course duration is Required");
+      return false;
+    }
+    if(courseyear.includes("DROP")||courseyear.includes("DROP")||courseyear.includes("DROP")||courseyear.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+   
+   
 
     const data = {
         title: event.target.title.value,

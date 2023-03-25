@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Table } from '@nextui-org/react';
 import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from 'next/router'
-import { Button, Grid } from "@nextui-org/react";
+import { Button, Grid, NextUIProvider } from "@nextui-org/react";
 
 export default function ViewAll({data}) {
 
@@ -28,7 +28,12 @@ export default function ViewAll({data}) {
       console.log('VIEW ALL PAGE: saveData()');
 
                 
-        let gradeValue = document.getElementById(`grade_`+sid).value;   
+        let gradeValue = document.getElementById(`grade_`+sid).value;  
+        
+        if(gradeValue.includes("DROP")||gradeValue.includes("DROP")||gradeValue.includes("DROP")||gradeValue.includes("DROP")){
+          alert("Input Invalid");
+          return false;
+        }
 
 
         const data = {
@@ -68,7 +73,7 @@ export default function ViewAll({data}) {
 
 
 return (
-<>
+<NextUIProvider>
 
       <Button 
           type="button" 
@@ -132,7 +137,7 @@ return (
      </Table.Body>
         </Table>
 
-</>
+</NextUIProvider>
 
 )
 

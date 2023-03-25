@@ -6,6 +6,7 @@ import { setIntervalAsync, clearIntervalAsync } from 'set-interval-async';
 
 export default function liveChat() {
 
+    
     console.log("LIVE CHAT PAGE");
 
     const router = useRouter()
@@ -13,20 +14,50 @@ export default function liveChat() {
     function goHome() {
         router.push("/adminPage");
     }
+    function resetValue(){     
+        var commentBox = document.getElementById("comment");
+        commentBox.textContent = "";
+    }
 
 
     async function handleSubmit(event) {
 
         event.preventDefault();
 
+        const username = document.querySelector('#username').value;
+
+        if(!username){
+            alert("A username is Required");
+            return false;
+          }
+          if(username.includes("DROP")||username.includes("DROP")||username.includes("DROP")||username.includes("DROP")){
+            alert("You can't use that as a username");
+            return false;
+          }
+
+        const comment = document.querySelector('#comment').value;
+
+        if(!comment){
+            alert("A username is Required");
+            return false;
+        }
+        if(comment.includes("DROP")||comment.includes("DROP")||comment.includes("DROP")||comment.includes("DROP")){
+        alert("You can't say that in a comment");
+        return false;
+        }
+        if(comment.length > 1){
+            alert("ALERT");
+            resetValue();          
+        }
+        
+
         // Get data from the form
         const data = {
             username: event.target.username.value,
-            comment: event.target.comment.value
+            comment: comment,
         }
 
-        var commentBox = document.getElementById("comment");
-        commentBox.textContent = "";
+        
 
         // Send the data to the server in JSON format
         const JSONdata = JSON.stringify(data)
@@ -46,9 +77,7 @@ export default function liveChat() {
             body: JSONdata,            
         }
         const response = await fetch(endpoint, options)
-
-        console.log("CHAT SUBMIT HANDLER");
-        
+            
     }
 
     async function chatLog() {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Table } from '@nextui-org/react';
 import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from 'next/router'
-import { Button, Grid } from "@nextui-org/react";
+import { Button, Grid, NextUIProvider } from "@nextui-org/react";
 
 
 export default function viewStudents({data}) {
@@ -27,7 +27,7 @@ export default function viewStudents({data}) {
 
 
   return (
-    <>
+    <NextUIProvider>
       <Button 
           type="button" 
           size="xs"
@@ -82,7 +82,7 @@ export default function viewStudents({data}) {
           })}
      </Table.Body>
         </Table>
-    </>
+    </NextUIProvider>
   )
   async function deleteData(gid, sid) {
 

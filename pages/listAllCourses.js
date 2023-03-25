@@ -1,6 +1,6 @@
 import { Grid, Card, Text } from "@nextui-org/react";
 import Link from 'next/link'
-import { Table, Button } from '@nextui-org/react';
+import { Table, Button, NextUIProvider } from '@nextui-org/react';
 import { useRouter } from 'next/router'
 
 
@@ -68,7 +68,7 @@ export default function listAllCourses({data}) {
 
     return (     
         
-        <>
+        <NextUIProvider>
         <Button 
             size="lg"
             type="button" 
@@ -143,7 +143,7 @@ export default function listAllCourses({data}) {
           })}
      </Table.Body>
         </Table>
-        </>
+        </NextUIProvider>
       );
 
     

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Table } from '@nextui-org/react';
 import { Input, Spacer } from "@nextui-org/react";
 import { useRouter } from 'next/router'
-import { Button, Grid, Card, Text } from "@nextui-org/react";
+import { Button, Grid, Card, Text, NextUIProvider } from "@nextui-org/react";
 
 export default function EnrollNew({data, data2}) {
 
@@ -13,7 +13,7 @@ export default function EnrollNew({data, data2}) {
     console.log('ENROLL STUDENT PAGE: ID = '+id);
 
 return (
-<>
+<NextUIProvider>
     
 <Grid.Container gap={2} justify="center">
         
@@ -63,7 +63,7 @@ return (
 
    
 
-</>
+</NextUIProvider>
 
 )
 
@@ -74,11 +74,58 @@ async function handleSubmit(event) {
     event.preventDefault(); 
     
     const sid = document.querySelector('#sid').value;
+
+    if(!sid){
+      alert("A Student ID number is Required");
+      return false;
+    }
+    if(sid.includes("DROP")||sid.includes("DROP")||sid.includes("DROP")||sid.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
     const firstname = document.querySelector('#firstname').value;
+
+    if(!firstname){
+      alert("A first name is Required");
+      return false;
+    }
+    if(firstname.includes("DROP")||firstname.includes("DROP")||firstname.includes("DROP")||firstname.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
     const surname = document.querySelector('#surname').value;
-    const email = document.querySelector('#email').value;     
+
+    if(!surname){
+      alert("A surname is Required");
+      return false;
+    }
+    if(surname.includes("DROP")||surname.includes("DROP")||surname.includes("DROP")||surname.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    const email = document.querySelector('#email').value; 
+    
+    if(email.includes("DROP")||email.includes("DROP")||email.includes("DROP")||email.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
     const address = document.querySelector('#address').value;
+
+    if(address.includes("DROP")||address.includes("DROP")||address.includes("DROP")||address.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
     const phone = document.querySelector('#phone').value;
+
+    if(phone.includes("DROP")||phone.includes("DROP")||phone.includes("DROP")||phone.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
     const courseID = id;
 
     console.log(courseID);
