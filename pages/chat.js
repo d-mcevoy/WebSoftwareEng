@@ -46,10 +46,7 @@ export default function chat(data) {
           // Send the form data to our forms API on Vercel and get a response.
           const response = await fetch(endpoint, options)
 
-          // Get the response data from the server as JSON
-          // If server returns the name submitted, that means the form works
-          //const result = await response.json()
-         // alert("response from server"+result);
+    
 
         
 
@@ -116,4 +113,3 @@ export async function getServerSideProps() {
     return { props: { data } }
 
   }
-

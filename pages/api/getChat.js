@@ -21,16 +21,18 @@ async function run() {
     // select collection
     const col = database.collection("chats");
 
-
+    
     const result = await database.collection("chats").find({}).toArray();
-    console.log(`MONGO DB QUERY SENT`);
+    console.log(`MONGO DB QUERY SENT \nResult:`);
     console.log(result)
-    console.log(typeof result)
-    console.log("*****")
     res.send(result);
   } finally {
     await client.close();
   }
+
+  
+
+
 }
 
 

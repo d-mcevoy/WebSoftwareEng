@@ -18,6 +18,14 @@ export default function listAllCourses({data}) {
       router.push("/addCourse");
     }
 
+    function viewAll(id){
+      router.push(`/viewAll?id=` +id);
+    }
+
+    function enrollNew(id){
+      router.push(`/enrollStudent?id=`+id);
+    }
+
     async function deleteCourse(cid) {
 
       console.log('LIST ALL COURSES PAGE: deleteCourse()');
@@ -25,6 +33,7 @@ export default function listAllCourses({data}) {
         const data = {
             cid: cid
         }
+    
        
     
         // Send the data to the server in JSON format.
@@ -106,15 +115,27 @@ export default function listAllCourses({data}) {
                 <Table.Cell> {item.desc}</Table.Cell>
                 <Table.Cell> {item.nfq}</Table.Cell>
                 <Table.Cell> {item.courseyear}</Table.Cell>
-                <Table.Cell><Link href={`/viewAll?id=` +item.id}>View</Link> </Table.Cell>
-                <Table.Cell><Link href={`/enrollStudent?id=` +item.id}>New Student</Link> </Table.Cell>
                 <Table.Cell>
-                <Button 
+                  <Button                       
+                      type="button" 
+                      onClick={(save) => viewAll(item.id)}>
+                      View
+                  </Button>                  
+                </Table.Cell>
+                <Table.Cell>
+                <Button                       
+                      type="button" 
+                      onClick={(save) => enrollNew(item.id)}>
+                      New Student
+                  </Button> 
+                </Table.Cell>
+                <Table.Cell>
+                  <Button 
                       size="lg"
                       type="button" 
                       onClick={(save) => deleteCourse(item.id)}>
                       Delete Course
-                </Button>
+                  </Button>
 
                 </Table.Cell>
               </Table.Row>
@@ -138,5 +159,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 
   }
-
 

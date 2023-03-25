@@ -19,6 +19,10 @@ export default function ViewAll({data}) {
       router.push("/listAllCourses");
   }
 
+  function viewStudent(id) {
+    router.push(`/viewStudent?id=` +id);
+  }
+
     async function saveData(sid) {
 
       console.log('VIEW ALL PAGE: saveData()');
@@ -69,7 +73,7 @@ return (
       <Button 
           type="button" 
           size="xs"
-          onClick={(save) => goUp(data[0].cid)}>
+          onClick={(save) => goUp()}>
               Return
     </Button>
     
@@ -114,7 +118,14 @@ return (
                 <Table.Cell> {item.firstname}</Table.Cell>
                 <Table.Cell> {item.lastname}</Table.Cell>
                 <Table.Cell> {item.enrolledin}</Table.Cell>
-                <Table.Cell> <Link href={`/viewStudent?id=` +item.id}>View</Link> </Table.Cell>
+                <Table.Cell>
+                  <Button 
+                    type="button" 
+                    size="xs"
+                    onClick={(save) => viewStudent(item.id)}>
+                        View Record
+                  </Button>
+                </Table.Cell>
               </Table.Row>
             );
           })}

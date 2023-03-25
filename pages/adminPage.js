@@ -24,7 +24,7 @@ export default function admin({data}) {
 
     function goChat() {
 
-        router.push("/chat");
+        router.push("/liveChat");
     }
 
     return (

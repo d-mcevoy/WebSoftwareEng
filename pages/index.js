@@ -21,11 +21,53 @@ export default function Home({data}) {
     event.preventDefault();
 
     const name = document.querySelector('#username').value
+
+    if(!name){
+      alert("Sorry no username added...");
+      return false;
+    }
+
+    if(name.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    if(name.includes("INSERT")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    if(name.includes("SELECT")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    
     const pass = document.querySelector('#password').value
 
-    // test the vars
-    //alert(name)
-    //alert(pass)
+    if(!pass){
+      alert("Sorry no password added...");
+      return false;
+    }
+
+    if(pass.includes("DROP")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    if(pass.includes("INSERT")){
+      alert("Input Invalid");
+      return false;
+    }
+
+    if(pass.includes("SELECT")){
+      alert("Input Invalid");
+      return false;
+    }
+
+
+
+    
 
     // send the data to the api page
 
