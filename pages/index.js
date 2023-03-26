@@ -106,7 +106,7 @@ export default function Home({data}) {
     // redirect if 'ok' received in response
     if(result == "ok"){
       console.log('Login Successful')
-      alert("ok")
+      // alert("ok")
       router.push("/adminPage");
     }
 

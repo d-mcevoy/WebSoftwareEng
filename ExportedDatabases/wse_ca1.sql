@@ -54,7 +54,7 @@ CREATE TABLE `courses` (
   `nfq` varchar(100) DEFAULT NULL,
   `courseyear` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
-INSERT INTO `courses` VALUES (2,'Art','The Art Course','6','2'),(3,'Engineering','The Engineering Course','8','4'),(6,'Statistics','The Stats Course','8','8');
+INSERT INTO `courses` VALUES (2,'Art','The Art Course','6','2'),(3,'Engineering','The Engineering Course','8','4'),(8,'Law','The Law Course','9','3');
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +80,7 @@ CREATE TABLE `grades` (
   `courseid` varchar(45) DEFAULT NULL,
   `grade` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `grades` (
 
 LOCK TABLES `grades` WRITE;
 /*!40000 ALTER TABLE `grades` DISABLE KEYS */;
-INSERT INTO `grades` VALUES (16,2030,'1','B'),(17,2030,'1','A'),(18,2030,'1','A'),(26,1001,'1','A'),(29,2023,'1','A'),(30,2020,'1','C'),(32,3040,'2','A'),(35,2034,'2','A');
+INSERT INTO `grades` VALUES (16,2030,'1','B'),(17,2030,'1','A'),(18,2030,'1','A'),(26,1001,'1','A'),(29,2023,'1','A'),(30,2020,'1','C'),(32,3040,'2','A'),(35,2034,'2','A'),(36,3465,'2','A'),(37,4454,'2','D');
 /*!40000 ALTER TABLE `grades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (1200,'Samantha','Carter','scarter@atlantis.gov','Pegasus','1','3'),(2023,'Michael','Luther','mike@luthorcorp.com','Metropolis','9988772','1'),(2030,'Heddy','Lamar','email@','LA','123','1'),(2034,'Stupid','McBoatyface','stupid@stupid.com','London','56','2');
+INSERT INTO `students` VALUES (1200,'Samantha','Carter','scarter@atlantis.gov','Pegasus','1','3'),(1245,'Ava','Murray','am@email.com','Dublin','12','3'),(2023,'Michael','Luther','mike@luthorcorp.com','Metropolis','9988772','1'),(3465,'John','Sturgess','js@email.com','Texas','45','2'),(4454,'George','Cooper','gc@email.com','Texas','66','2');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-25 18:05:11
+-- Dump completed on 2023-03-26 12:20:16

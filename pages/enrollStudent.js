@@ -131,7 +131,7 @@ async function handleSubmit(event) {
     console.log(courseID);
     console.log(id);
 
-    router.push('/viewAll?id='+courseID);
+    
     console.log("Stored in DB");
 
     const data = {
@@ -171,7 +171,7 @@ async function handleSubmit(event) {
     const result = await response.json()
 
     // all okay
-
+    router.push('/viewAll?id='+courseID);
         
      
 }

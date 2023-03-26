@@ -124,7 +124,7 @@ export default function listAllCourses({data}) {
         // all okay
   
         if(result == "ok"){
-            alert("ok");
+            alert("Deleted");
             router.push("/listAllStudents");
           }
     }
