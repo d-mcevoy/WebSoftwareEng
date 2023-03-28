@@ -67,7 +67,7 @@ export default function ViewAll({data}) {
         const result = await response.json()
 
         // all okay
-
+        
         alert('saved')
     }
 
